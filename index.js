@@ -1,5 +1,5 @@
 let titleCount = 1;
-let totalPrice = 0
+let totalPrice = 0;
 const cards = document.querySelectorAll(".card");
 // console.log(cards);
 for (let index = 0; index < cards.length; index++) {
@@ -10,15 +10,17 @@ for (let index = 0; index < cards.length; index++) {
 
     // get the title
     const title = card.querySelector("h3").innerText;
-    const price = parseInt(card.querySelector("span").innerText.split(' ')[1]);
-    
+    const price = parseInt(card.querySelector("span").innerText.split(" ")[1]);
 
+    // appending title in the title container
     const titleContainer = document.getElementById("title-container");
-
     const p = document.createElement("p");
-    p.innerText =titleCount+ '. '+ title;
-
+    p.innerText = titleCount + ". " + title;
     titleContainer.appendChild(p);
     titleCount++;
+
+    // calculate price
+    totalPrice+=price;
+    document.getElementById("totalPrice").innerText=totalPrice.toFixed(2);
   });
 }
