@@ -20,7 +20,30 @@ for (let index = 0; index < cards.length; index++) {
     titleCount++;
 
     // calculate price
-    totalPrice+=price;
-    document.getElementById("totalPrice").innerText=totalPrice.toFixed(2);
+    totalPrice += price;
+    document.getElementById("totalPrice").innerText = totalPrice.toFixed(2);
   });
 }
+
+// discount apply btn
+
+const btn = document.getElementById("apply-btn");
+btn.addEventListener("click", function () {
+  // get the value from input
+  const inputValue = document.getElementById("input-field").value;
+  const couponCode = inputValue.split(" ").join("").toUpperCase();
+  if (totalPrice >= 200) {
+    if (couponCode === "SELL200") {
+        // discount calculation
+        const discountElement = document.getElementById("discountPrice");
+        const discountPrice = totalPrice*0.2;
+        discountElement.innerText=discountPrice.toFixed(2);
+        // rest total calculation
+        
+    } else {
+      alert("invalid coupon code");
+    }
+  } else {
+    alert("please at least $200 khoroch koren bhai!");
+  }
+});
