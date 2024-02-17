@@ -34,16 +34,20 @@ btn.addEventListener("click", function () {
   const couponCode = inputValue.split(" ").join("").toUpperCase();
   if (totalPrice >= 200) {
     if (couponCode === "SELL200") {
-        // discount calculation
-        const discountElement = document.getElementById("discountPrice");
-        const discountPrice = totalPrice*0.2;
-        discountElement.innerText=discountPrice.toFixed(2);
-        // rest total calculation
-        
+      // discount calculation
+      const discountElement = document.getElementById("discountPrice");
+      const discountPrice = totalPrice * 0.2;
+      discountElement.innerText = discountPrice.toFixed(2);
+      // rest total calculation
+      const restTotal = document.getElementById("total");
+      restTotal.innerText=totalPrice-discountPrice.toFixed(2);
+      document.getElementById("input-field").value='';
     } else {
       alert("invalid coupon code");
+      document.getElementById("input-field").value = "";
     }
   } else {
     alert("please at least $200 khoroch koren bhai!");
+    document.getElementById("input-field").value = "";
   }
 });
